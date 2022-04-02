@@ -43,23 +43,12 @@ resource "azurerm_network_security_group" "app_nsg" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "22"
-    source_address_prefix      = "40.83.41.190"
+    source_address_prefix      = "168.61.152.193"
     destination_address_prefix = "*"
   }
-   security_rule {
-    name                       = "SSH_deny"
-    priority                   = 320
-    direction                  = "Inbound"
-    access                     = "Deny"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "22"
-    source_address_prefix      = "*"
-    destination_address_prefix = "*"
-  }
-   security_rule {
+  security_rule {
     name                       = "Port_8080"
-    priority                   = 330
+    priority                   = 320
     direction                  = "Inbound"
     access                     = "Allow"
     protocol                   = "*"
@@ -130,9 +119,31 @@ resource "azurerm_network_security_group" "db_nsg" {
     source_address_prefix      = "10.0.0.7"
     destination_address_prefix = "*"
   }
+    security_rule {
+    name                       = "postgres_allow3"
+    priority                   = 320
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "5432"
+    source_address_prefix      = "10.0.0.4"
+    destination_address_prefix = "*"
+  }
+      security_rule {
+    name                       = "postgres_allow4"
+    priority                   = 330
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "5432"
+    source_address_prefix      = "10.0.0.6"
+    destination_address_prefix = "*"
+  }
    security_rule {
     name                       = "postgres_deny"
-    priority                   = 320
+    priority                   = 340
     direction                  = "Inbound"
     access                     = "Deny"
     protocol                   = "Tcp"
@@ -163,6 +174,7 @@ resource "azurerm_subnet_network_security_group_association" "dbNsg_association"
   depends_on=[var.resource_group_name]
  }
 
+/*
  resource "azurerm_public_ip_prefix" "vmss_ip" {
   name                = "${var.enviorment}-vmssip"
   resource_group_name      = var.resource_group_name
@@ -171,6 +183,7 @@ resource "azurerm_subnet_network_security_group_association" "dbNsg_association"
   prefix_length = 30
   depends_on=[var.resource_group_name]
 }
+*/
 
 # Create public IPs
 resource "azurerm_public_ip" "public_ip" {

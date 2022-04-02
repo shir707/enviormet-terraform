@@ -21,3 +21,7 @@ output "Password_vm" {
   value = module.ConfigVm.Password
   sensitive=true
 }
+
+output "userName_admin"{
+  value=module.ConfigVm.userName
+}

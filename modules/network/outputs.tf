@@ -36,10 +36,6 @@ output "lbIp_id"{
   value=azurerm_public_ip.loadBalancer_ip.id
 }
 
-output "vmss_ip"{
-  value=azurerm_public_ip_prefix.vmss_ip.id
-}
-
 output "network_interface_ids"{
   value=azurerm_network_interface.myConfigInc.id
 }

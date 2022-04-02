@@ -43,9 +43,6 @@ variable "admin_password" {
    description="the id of the Lb backend pool "
  }
 
- variable "vmss_ip"{
-    description="Ip of vmss machines "
- }
 
 #getting by module
 variable "virtual_network_id" {

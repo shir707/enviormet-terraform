@@ -43,13 +43,12 @@ module "ScaleSet"{
   location=var.location
   tags = "${merge(var.default_tags,tomap({"type"="vmss"}))}"
   sku=var.sku
-  capacity            = "${var.capacity}"
+  capacity ="${var.capacity}"
   defaultNumVm="${var.defaultNumVm}"
   minVm="${var.minVm}"
   admin_user = var.admin_user
   admin_password = var.admin_password
   subnet_id = module.VirtualNetwork.subnet_id
-  vmss_ip=module.VirtualNetwork.vmss_ip
   backendPoll_id =module.LoadBalancer.backendPool_id
   virtual_network_id=module.VirtualNetwork.virtual_network_id
 }

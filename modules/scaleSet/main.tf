@@ -25,11 +25,6 @@ resource "azurerm_linux_virtual_machine_scale_set" "vmss" {
       primary   = true
       subnet_id =var.subnet_id
       load_balancer_backend_address_pool_ids =[var.backendPoll_id]
-
-      public_ip_address {
-        name                = "first"
-        public_ip_prefix_id =var.vmss_ip
-      }
     }
   }
 
