@@ -5,33 +5,6 @@ module "ResourceGroup" {
    tags = "${merge(var.default_tags,tomap({"type"="resource"}))}"
 }
 
-/*
-resource "random_string" "resource_code" {
-  length  = 5
-  special = false
-  upper   = false
-}
-
-#creating storage account 
-resource "azurerm_storage_account" "storage" {
-  name = "tfstate${random_string.resource_code.result}"
-  resource_group_name = module.ResourceGroup.rg_name_out
-  location=var.location
-  tags                     = "${merge(var.default_tags, map("type", "resource"))}"
-  account_tier             = "Standard"
-   account_replication_type = "LRS"
-   depends_on=[module.ResourceGroup.rg_name_out]
-}
-
-#creating container
-resource "azurerm_storage_container" "tfstate" {
-  name                  = "tfstate"
-  storage_account_name  = azurerm_storage_account.storage.name
-  container_access_type = "private"
-  depends_on=[azurerm_storage_account.storage]
-}
-*/
-
 module "VirtualNetwork"{
   source="./modules/network"
   enviorment = var.enviorment
