@@ -43,7 +43,7 @@ resource "azurerm_network_security_group" "app_nsg" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "22"
-    source_address_prefix      = "168.61.152.193"
+    source_address_prefix      = "84.229.54.164"
     destination_address_prefix = "*"
   }
   security_rule {
@@ -127,7 +127,7 @@ resource "azurerm_network_security_group" "db_nsg" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "5432"
-    source_address_prefix      = "10.0.0.4"
+    source_address_prefix      = "10.0.0.6"
     destination_address_prefix = "*"
   }
       security_rule {
@@ -138,12 +138,23 @@ resource "azurerm_network_security_group" "db_nsg" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "5432"
-    source_address_prefix      = "10.0.0.6"
+    source_address_prefix      = "10.0.0.8"
+    destination_address_prefix = "*"
+  }
+     security_rule {
+    name                       = "postgres_allow5"
+    priority                   = 340
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "5432"
+    source_address_prefix      = "10.0.0.10"
     destination_address_prefix = "*"
   }
    security_rule {
     name                       = "postgres_deny"
-    priority                   = 340
+    priority                   = 350
     direction                  = "Inbound"
     access                     = "Deny"
     protocol                   = "Tcp"
