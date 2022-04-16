@@ -1,4 +1,4 @@
-enviorment = "prod"
+enviorment = "production"
 location    = "East US"
 size="Standard_DS2_v2"
 sku="Standard_F2"

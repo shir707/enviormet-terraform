@@ -1,4 +1,4 @@
-enviorment = "stage"
+enviorment = "staging"
 location    = "centralus"
 size="Standard_D2ads_v5"
 sku="Standard_D2ads_v5"

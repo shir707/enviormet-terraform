@@ -25,3 +25,8 @@ output "Password_vm" {
 output "userName_admin"{
   value=module.ConfigVm.userName
 }
+
+output "pass_registry"{
+  value=module.containerRegistry.admin_password
+  sensitive=true
+}

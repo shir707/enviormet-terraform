@@ -1,3 +1,8 @@
+
+module "containerRegistry"{
+  source="./modules/azureRegistry"
+}
+
 module "ResourceGroup" {
   source = "./modules/resourceGroup"
   base_name = var.enviorment

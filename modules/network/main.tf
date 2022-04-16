@@ -105,7 +105,7 @@ resource "azurerm_network_security_group" "db_nsg" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "5432"
-    source_address_prefix      = "10.0.0.5"
+    source_address_prefix      = "10.0.0.4"
     destination_address_prefix = "*"
   }
    security_rule {
@@ -116,7 +116,7 @@ resource "azurerm_network_security_group" "db_nsg" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "5432"
-    source_address_prefix      = "10.0.0.7"
+    source_address_prefix      = "10.0.0.5"
     destination_address_prefix = "*"
   }
     security_rule {
@@ -127,7 +127,7 @@ resource "azurerm_network_security_group" "db_nsg" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "5432"
-    source_address_prefix      = "10.0.0.6"
+    source_address_prefix      = "10.0.0.7"
     destination_address_prefix = "*"
   }
       security_rule {
@@ -138,7 +138,7 @@ resource "azurerm_network_security_group" "db_nsg" {
     protocol                   = "Tcp"
     source_port_range          = "*"
     destination_port_range     = "5432"
-    source_address_prefix      = "10.0.0.8"
+    source_address_prefix      = "10.0.0.9"
     destination_address_prefix = "*"
   }
      security_rule {
